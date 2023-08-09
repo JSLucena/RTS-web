@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="RTS-web"
+run/main_scene="res://Scenes/main.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+gameRes="*res://Scripts/game_resources.gd"
 
 [rendering]
 

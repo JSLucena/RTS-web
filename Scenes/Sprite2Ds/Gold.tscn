@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbu871vp8ixcd"]
+
+[ext_resource type="Texture2D" uid="uid://dbg1lir7m6sut" path="res://Resources/Sprites/ingot_01d.png" id="1_u1bdi"]
+
+[node name="Gold" type="Sprite2D"]
+texture = ExtResource("1_u1bdi")
