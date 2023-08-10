@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://jc7a6s0fy7ml"]
+
+[ext_resource type="Texture2D" uid="uid://by2ytrkbd8cbi" path="res://Resources/Text_Resources/gold-icon.tres" id="1_yuyx5"]
+[ext_resource type="Texture2D" uid="uid://relxui4xkry0" path="res://Resources/Text_Resources/wood-icon.tres" id="2_3oxpj"]
+[ext_resource type="LabelSettings" uid="uid://mf16fh8wqqg7" path="res://Resources/Text_Resources/standard_label.tres" id="2_ygpm8"]
+
+[node name="Main_HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.998
+anchor_bottom = 0.08
+offset_right = 0.303955
+alignment = 1
+
+[node name="Gold" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_yuyx5")
+expand_mode = 2
+
+[node name="GoldQuantity" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+label_settings = ExtResource("2_ygpm8")
+
+[node name="Wood" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_3oxpj")
+expand_mode = 2
+
+[node name="WoodQuantity" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+label_settings = ExtResource("2_ygpm8")

@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://mf16fh8wqqg7"]
+
+[ext_resource type="FontFile" path="res://Resources/fonts/title_font.tres" id="1_vrrdd"]
+
+[resource]
+font = ExtResource("1_vrrdd")
+font_size = 32

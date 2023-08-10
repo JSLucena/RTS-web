@@ -1,6 +1,47 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0fqdf0gcbt1u"]
+[gd_scene load_steps=5 format=3 uid="uid://d0fqdf0gcbt1u"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_7tfrq"]
+[ext_resource type="PackedScene" uid="uid://38xfxgiip4kt" path="res://Scenes/Sprite2Ds/Vacant_Space.tscn" id="2_34asc"]
+[ext_resource type="PackedScene" uid="uid://jc7a6s0fy7ml" path="res://Scenes/UI/Main_HUD.tscn" id="3_8eubm"]
+[ext_resource type="Script" path="res://Scenes/HUD_Control.gd" id="3_iupr0"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_7tfrq")
+
+[node name="space0" parent="." instance=ExtResource("2_34asc")]
+position = Vector2(581, 242)
+scale = Vector2(2, 2)
+
+[node name="space1" parent="." instance=ExtResource("2_34asc")]
+position = Vector2(207, 336)
+
+[node name="space2" parent="." instance=ExtResource("2_34asc")]
+position = Vector2(429, 517)
+
+[node name="space3" parent="." instance=ExtResource("2_34asc")]
+position = Vector2(701, 525)
+
+[node name="space4" parent="." instance=ExtResource("2_34asc")]
+position = Vector2(958, 324)
+
+[node name="refresh" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="HUD_Control" type="Node2D" parent="."]
+script = ExtResource("3_iupr0")
+
+[node name="Main_HUD" parent="HUD_Control" instance=ExtResource("3_8eubm")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 2306.0
+offset_bottom = 1298.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="timeout" from="refresh" to="." method="_on_refresh_timeout"]
+[connection signal="timeout" from="refresh" to="HUD_Control" method="_on_refresh_timeout"]

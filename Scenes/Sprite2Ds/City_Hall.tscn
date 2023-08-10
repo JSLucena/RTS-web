@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://n5oginj0ny8w"]
+
+[ext_resource type="Texture2D" uid="uid://nt5h6ia5opvl" path="res://icon.svg" id="1_nflhq"]
+
+[node name="City_Hall" type="Sprite2D"]
+modulate = Color(0.796078, 0.780392, 0, 1)
+self_modulate = Color(0.733333, 0.670588, 0, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("1_nflhq")
