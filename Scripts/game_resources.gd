@@ -22,7 +22,7 @@ var resource_sprite_dictionary = {
 
 class Game_Resource:
 	var res_name : String
-	var quantity : int
+	var quantity : float
 	var production : float
 	var sprite_index : int
 
@@ -33,14 +33,17 @@ class Building:
 	var building_menu : Node2D
 	var current_level : int
 	var level_time : Dictionary
+	var effect : Dictionary
 	
 	
 class City:
 	var city_name : String
 	var location : Vector2
 	var population : int
+	var max_population : int
 	var resource_list : Dictionary
 	var building_list : Dictionary
+	var modifiers : Dictionary
 
 
 var available_resources = []
@@ -77,6 +80,8 @@ func init_buildings():
 	#new_res.building_menu = ...
 	new_res.current_level = 1
 	#new_res.level_time = {}
+	new_res.effect[1] = {"Max_Population":[100,"a"], "Gold_Production":[1.01,"m"]}
+	
 	available_buildings.append(new_res)
 	
 # Called when the node enters the scene tree for the first time.
