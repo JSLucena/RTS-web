@@ -18,6 +18,11 @@ config/icon="res://icon.svg"
 [autoload]
 
 gameRes="*res://Scripts/game_resources.gd"
+PlayerControl="*res://Scripts/player_control.gd"
+
+[display]
+
+window/stretch/aspect="ignore"
 
 [rendering]
 

@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://38xfxgiip4kt"]
-
-[ext_resource type="Texture2D" uid="uid://nt5h6ia5opvl" path="res://icon.svg" id="1_mikfp"]
-
-[node name="Vacant_Space" type="Sprite2D"]
-modulate = Color(0.215686, 0.215686, 0.215686, 1)
-self_modulate = Color(0.196078, 0.196078, 0.196078, 1)
-texture = ExtResource("1_mikfp")

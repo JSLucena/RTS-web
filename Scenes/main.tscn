@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://d0fqdf0gcbt1u"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_7tfrq"]
-[ext_resource type="PackedScene" uid="uid://38xfxgiip4kt" path="res://Scenes/Sprite2Ds/Vacant_Space.tscn" id="2_34asc"]
+[ext_resource type="PackedScene" uid="uid://38xfxgiip4kt" path="res://Scenes/Sprite2Ds/building.tscn" id="2_34asc"]
 [ext_resource type="PackedScene" uid="uid://jc7a6s0fy7ml" path="res://Scenes/UI/Main_HUD.tscn" id="3_8eubm"]
-[ext_resource type="Script" path="res://Scenes/HUD_Control.gd" id="3_iupr0"]
+[ext_resource type="Script" path="res://Scripts/HUD_Control.gd" id="3_kobsb"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_7tfrq")
@@ -29,7 +29,7 @@ wait_time = 0.5
 autostart = true
 
 [node name="HUD_Control" type="Node2D" parent="."]
-script = ExtResource("3_iupr0")
+script = ExtResource("3_kobsb")
 
 [node name="Main_HUD" parent="HUD_Control" instance=ExtResource("3_8eubm")]
 anchors_preset = 0
