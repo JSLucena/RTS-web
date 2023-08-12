@@ -35,11 +35,13 @@ func _ready():
 		new_building.position = $space0.position
 		new_building.name = $space0.name
 		$space0.queue_free()
+		remove_child($space0)
 		add_child(new_building)
 
 		this_city.building_list[0] = [gameRes.available_buildings[gameRes.building_index.CITY_HALL],get_node("space0")]
 		modded = this_city
 		print(this_city.building_list[0][0].building_name)
+		this_city.building_list[0][0].current_level = 1
 		modded.max_population = apply_modifier("Max_Population",modded.max_population, this_city.building_list[0][0])
 		print(modded.max_population)
 		modded.resource_list["Gold"].production = apply_modifier("Gold_Production",modded.resource_list["Gold"].production, this_city.building_list[0][0])
