@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://38xfxgiip4kt"]
 
 [ext_resource type="Script" path="res://Scripts/building.gd" id="1_3eda0"]
-[ext_resource type="Texture2D" uid="uid://cf2qjp2mo61va" path="res://Resources/Sprites/giftopen_01c.png" id="2_70op4"]
+[ext_resource type="Texture2D" uid="uid://nt5h6ia5opvl" path="res://icon.svg" id="1_8eshe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5bq0w"]
 size = Vector2(128, 128)
@@ -10,11 +10,12 @@ size = Vector2(128, 128)
 modulate = Color(0.423529, 0.423529, 0.423529, 1)
 script = ExtResource("1_3eda0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_5bq0w")
-
 [node name="sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_70op4")
+texture = ExtResource("1_8eshe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_5bq0w")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
