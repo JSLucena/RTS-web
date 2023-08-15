@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://jc7a6s0fy7ml"]
+[gd_scene load_steps=7 format=3 uid="uid://jc7a6s0fy7ml"]
 
 [ext_resource type="Texture2D" uid="uid://bcmy8pvpv5awc" path="res://Resources/Text_Resources/Population-icon.tres" id="1_d6euy"]
+[ext_resource type="Theme" uid="uid://cvq1b2fwjsa2i" path="res://Resources/Themes/standard_UI.tres" id="1_l328w"]
+[ext_resource type="Script" path="res://Scripts/Main_HUD.gd" id="1_ymav4"]
 [ext_resource type="Texture2D" uid="uid://by2ytrkbd8cbi" path="res://Resources/Text_Resources/gold-icon.tres" id="1_yuyx5"]
 [ext_resource type="Texture2D" uid="uid://relxui4xkry0" path="res://Resources/Text_Resources/wood-icon.tres" id="2_3oxpj"]
 [ext_resource type="LabelSettings" uid="uid://mf16fh8wqqg7" path="res://Resources/Text_Resources/standard_label.tres" id="2_ygpm8"]
@@ -13,38 +15,55 @@ anchor_bottom = 1.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ymav4")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.998
-anchor_bottom = 0.08
-offset_right = 0.303955
+anchor_right = 1.001
+anchor_bottom = 1.0
+offset_right = -0.1521
+offset_bottom = -590.0
+
+[node name="buttons" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="Home" type="Button" parent="VBoxContainer/buttons"]
+layout_mode = 2
+theme = ExtResource("1_l328w")
+text = "Home"
+
+[node name="stats" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
 alignment = 1
 
-[node name="Population" type="TextureRect" parent="HBoxContainer"]
+[node name="Population" type="TextureRect" parent="VBoxContainer/stats"]
 layout_mode = 2
 texture = ExtResource("1_d6euy")
 expand_mode = 2
 
-[node name="PopQuantity" type="Label" parent="HBoxContainer"]
+[node name="PopQuantity" type="Label" parent="VBoxContainer/stats"]
 layout_mode = 2
 label_settings = ExtResource("2_ygpm8")
 
-[node name="Gold" type="TextureRect" parent="HBoxContainer"]
+[node name="Gold" type="TextureRect" parent="VBoxContainer/stats"]
 layout_mode = 2
 texture = ExtResource("1_yuyx5")
 expand_mode = 2
 
-[node name="GoldQuantity" type="Label" parent="HBoxContainer"]
+[node name="GoldQuantity" type="Label" parent="VBoxContainer/stats"]
 layout_mode = 2
 label_settings = ExtResource("2_ygpm8")
 
-[node name="Wood" type="TextureRect" parent="HBoxContainer"]
+[node name="Wood" type="TextureRect" parent="VBoxContainer/stats"]
 layout_mode = 2
 texture = ExtResource("2_3oxpj")
 expand_mode = 2
 
-[node name="WoodQuantity" type="Label" parent="HBoxContainer"]
+[node name="WoodQuantity" type="Label" parent="VBoxContainer/stats"]
 layout_mode = 2
 label_settings = ExtResource("2_ygpm8")
+
+[connection signal="pressed" from="VBoxContainer/buttons/Home" to="." method="_on_home_pressed"]

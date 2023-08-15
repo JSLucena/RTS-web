@@ -29,7 +29,7 @@ class Building:
 	var building_name : String
 	var description : String
 	var sprite_index : int
-	var building_menu : Node2D
+	var building_menu : String
 	var current_level : int
 	var level_resources : Dictionary # key is level, then Gold, Wood, etc ....., last  is time
 	var effect : Dictionary
@@ -53,6 +53,7 @@ func init_resources(): # initializes available resources
 	var new_res = Game_Resource.new()
 	new_res.res_name = "Gold"
 	new_res.quantity = 50
+	
 	new_res.production = 0
 	new_res.sprite_index  = 0
 	available_resources.append(new_res)
@@ -86,14 +87,14 @@ func init_building(bld_info,bld_name):
 	new_res.building_name = bld_name
 	new_res.description = bld_info[0]
 	new_res.sprite_index  = bld_info[1]
-	#new_res.building_menu = bld_info[2]
+	new_res.building_menu = bld_info[2]
 	new_res.current_level = bld_info[3]
 	new_res.level_resources = bld_info[4]
 	new_res.effect = bld_info[5]
 	available_buildings.append(new_res)
 
 var build_dict = {
-	"Vacant" : ["This is a vacant lot, maybe you should build something?", 0, "...", 0, {1 : [0,0,0]}, {0 : 0}],
+	"Vacant" : ["This is a vacant lot, maybe you should build something?", 0, "res://Scenes/UI/Vacant_Menu.tscn", 0, {1 : [0,0,0]}, {0 : 0}],
 	
 	"City Hall" : ["This is the City Hall, where you can control your population and taxes", 
 	1, 

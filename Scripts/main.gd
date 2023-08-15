@@ -3,6 +3,7 @@ extends Node2D
 var buildings_screen_pos = {}
 var this_city = gameRes.City.new()
 var modded
+var this_city_id
 # Called when the node enters the scene tree for the first time.
 
 
@@ -23,7 +24,7 @@ func _ready():
 			this_city.resource_list[thing.res_name] = thing
 		for i in range(0,5):
 			var name = "space" + str(i)
-			this_city.building_list[i] = [gameRes.available_buildings[gameRes.building_index.VACANT],get_node(name)]
+			this_city.building_list[i] = [gameRes.available_buildings[gameRes.building_index.VACANT],get_node(name).position,name]
 		
 		this_city.resource_list["Gold"].production = this_city.population * 0.1
 		#creating city hall
@@ -38,15 +39,33 @@ func _ready():
 		remove_child($space0)
 		add_child(new_building)
 
-		this_city.building_list[0] = [gameRes.available_buildings[gameRes.building_index.CITY_HALL],get_node("space0")]
+		this_city.building_list[0] = [gameRes.available_buildings[gameRes.building_index.CITY_HALL],get_node("space0").position, "space0"]
 		modded = this_city
 		print(this_city.building_list[0][0].building_name)
 		this_city.building_list[0][0].current_level = 1
-		modded.max_population = apply_modifier("Max_Population",modded.max_population, this_city.building_list[0][0])
-		print(modded.max_population)
-		modded.resource_list["Gold"].production = apply_modifier("Gold_Production",modded.resource_list["Gold"].production, this_city.building_list[0][0])
-		PlayerControl.city_list.append(this_city)
+		this_city.max_population = apply_modifier("Max_Population",modded.max_population, this_city.building_list[0][0])
+		print(this_city.max_population)
+		this_city.resource_list["Gold"].production = apply_modifier("Gold_Production",modded.resource_list["Gold"].production, this_city.building_list[0][0])
+		PlayerControl.city_list[this_city.city_name] = this_city
+		PlayerControl.last_city_looked = this_city.city_name
 	else :
+		this_city.city_name = PlayerControl.last_city_looked
+		for i in PlayerControl.city_list[this_city.city_name].building_list:
+			#if building[0] == gameRes.available_buildings[gameRes.building_index.CITY_HALL]:
+			print(i)
+			var new_building = gameRes.building_preload.instantiate()
+			new_building.type = PlayerControl.city_list[this_city.city_name].building_list[i][0].building_name
+			if(PlayerControl.city_list[this_city.city_name].building_list[0][0].building_name == "City Hall"):
+				new_building.modulate = Color(1.0, 1.0, 0, 1.0)
+				new_building.scale = Vector2(2,2)
+			new_building.position = PlayerControl.city_list[this_city.city_name].building_list[i][1]
+			new_building.name = PlayerControl.city_list[this_city.city_name].building_list[i][2]
+			#PlayerControl.city_list[this_city.city_name].building_list[i][1].queue_free()
+			
+			remove_child(get_node(PlayerControl.city_list[this_city.city_name].building_list[i][2]))
+			add_child(new_building)
+			new_building.queue_free()
+			
 		pass
 	
 
@@ -61,5 +80,5 @@ func _process(delta):
 
 
 func _on_refresh_timeout():
-	modded.resource_list["Gold"].quantity = modded.resource_list["Gold"].quantity + modded.resource_list["Gold"].production
+	PlayerControl.city_list[this_city.city_name].resource_list["Gold"].quantity = PlayerControl.city_list[this_city.city_name].resource_list["Gold"].quantity + PlayerControl.city_list[this_city.city_name].resource_list["Gold"].production
 	pass # Replace with function body.

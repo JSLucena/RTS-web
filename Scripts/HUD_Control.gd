@@ -14,7 +14,8 @@ func _process(delta):
 
 
 func _on_refresh_timeout():
-	$Main_HUD/HBoxContainer/GoldQuantity.text = "%.f" % parent.modded.resource_list["Gold"].quantity
-	$Main_HUD/HBoxContainer/WoodQuantity.text = "%.f" % parent.modded.resource_list["Wood"].quantity
-	$Main_HUD/HBoxContainer/PopQuantity.text = str(parent.modded.population) + "/" + str(parent.modded.max_population)
+	print(PlayerControl.city_list[parent.this_city.city_name].resource_list)
+	$Main_HUD/VBoxContainer/stats/GoldQuantity.text = "%.f" % PlayerControl.city_list[parent.this_city.city_name].resource_list["Gold"].quantity
+	$Main_HUD/VBoxContainer/stats/WoodQuantity.text = "%.f" % PlayerControl.city_list[parent.this_city.city_name].resource_list["Wood"].quantity
+	$Main_HUD/VBoxContainer/stats/PopQuantity.text = str(PlayerControl.city_list[parent.this_city.city_name].population) + "/" + str(PlayerControl.city_list[parent.this_city.city_name].max_population)
 	
