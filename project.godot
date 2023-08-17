@@ -22,6 +22,8 @@ PlayerControl="*res://Scripts/player_control.gd"
 
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/aspect="ignore"
 
 [rendering]

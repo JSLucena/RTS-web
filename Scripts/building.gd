@@ -22,10 +22,13 @@ func change_sprite():
 
 # From here on Im trying to detect which space the player is hovering, and where does he click
 func _on_mouse_entered():
-	print(gameRes.available_buildings[type].description)
-	PlayerControl.selected_space = self.name
+	if PlayerControl.disable_menus == false:
+		print(gameRes.available_buildings[type].description)
+		PlayerControl.selected_space = self.name
+		PlayerControl.selected_building = self.type
 	pass # Replace with function body.
 
 func _on_mouse_exited(): #if he is not hovering anything we discard the selected space
 	PlayerControl.selected_space = null
+	PlayerControl.selected_building = null
 	pass # Replace with function body.

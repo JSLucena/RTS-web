@@ -1,12 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://iul1nt2crr4a"]
+[gd_scene load_steps=3 format=3 uid="uid://iul1nt2crr4a"]
 
 [ext_resource type="Script" path="res://Scripts/Vacant_Menu.gd" id="1_afeck"]
+[ext_resource type="Theme" uid="uid://cvq1b2fwjsa2i" path="res://Resources/Themes/standard_UI.tres" id="2_7ryeo"]
 
 [node name="Vacant_Menu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 0.625
+anchor_bottom = 0.741
+offset_right = 480.0
+offset_bottom = 186.48
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_afeck")
@@ -19,6 +21,7 @@ anchor_bottom = 1.0
 offset_right = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_7ryeo")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
@@ -30,3 +33,22 @@ offset_bottom = -481.984
 
 [node name="buildings" type="ItemList" parent="Panel/HBoxContainer"]
 layout_mode = 2
+
+[node name="CloseScreen" type="Button" parent="Panel"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -79.0
+offset_top = -49.0
+offset_right = 80.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_7ryeo")
+text = "Close"
+
+[connection signal="pressed" from="Panel/CloseScreen" to="." method="_on_close_screen_pressed"]

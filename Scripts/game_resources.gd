@@ -3,6 +3,9 @@ extends Node
 const BULDING_COUNT_MAX = 5
 var SERVER_RATE = 1
 var building_preload = preload("res://Scenes/Sprite2Ds/building.tscn")
+
+var view_port_size
+
 enum building_index{
 	VACANT = 0,
 	CITY_HALL = 1,
