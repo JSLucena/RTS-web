@@ -35,7 +35,8 @@ func _ready():
 		$space0.queue_free()
 		remove_child($space0)
 		add_child(new_building)
-
+		
+		
 		this_city.building_list[0] = [gameRes.available_buildings["City Hall"],get_node("space0").position, "space0"]
 		#print(this_city.building_list[0][0].building_name)
 		this_city.building_list[0][0].current_level = 1

@@ -6,8 +6,9 @@ func _ready():
 	#print(get_viewport().size)
 	self.size = get_viewport().size - Vector2i(200,200)
 	print(self.size)
-	for building in gameRes.available_buildings:
-		#$Panel/HBoxContainer/buildings.add_item(building.building_name)
+	for building in gameRes.available_buildings.keys():
+		print(building)
+		$Panel/HBoxContainer/buildings.add_item(building,gameRes.load_image(gameRes.available_buildings[building].sprite))
 		pass
 	pass # Replace with function body.
 
